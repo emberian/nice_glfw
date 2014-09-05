@@ -38,10 +38,11 @@ use glfw::OpenGlCoreProfile;
 ///
 /// ~~~rust,no_run
 /// extern crate glfw;
+/// extern crate nice_glfw;
 ///
 /// fn main() {
 ///     let glfw = glfw::init(glfw::FAIL_ON_ERRORS).unwrap();
-///     let window = glfw::WindowBuilder::new(&glfw)
+///     let window = nice_glfw::WindowBuilder::new(&glfw)
 ///         .try_modern_context_hints()
 ///         .size(800, 600)
 ///         .create();
