@@ -1,0 +1,8 @@
+[project]
+name = "nice_glfw"
+version = "0.0.1"
+authors = ["Corey Richardson <corey@octayn.net>"]
+
+[dependencies.glfw]
+
+git = "https://github.com/bjz/glfw-rs"
