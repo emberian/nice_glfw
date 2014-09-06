@@ -1,9 +1,18 @@
+env:
+  global:
+    - secure: cmOvzJJcqhNk9XmJ6gsBVFlrUV4FiOPzRzzDkOnEq9d2vIxf9dtM9871R3dX9w/E1Zckj9RduQPs6CR403CtOsX6EAi7WSwuJOeDfhRzIZ7Dw3MO++C+XaBPkOoBZqXwAue4Kj00H/d4TvzorhAvteN5q6c7P/ht7UzUY4YUywU=
 language: rust
 before_install:
     - sudo apt-get install xorg-dev
     - git clone https://github.com/glfw/glfw.git
-    - cd glfw
+    - pushd glfw
     - git checkout 3.0.3
     - cmake -DCMAKE_C_FLAGS=-fPIC -DGLFW_BUILD_EXAMPLES=OFF -DGLFW_BUILD_TESTS=OFF -DGLFW_BUILD_DOCS=OFF .
     - make
     - sudo make install
+    - popd
+after_script:
+    - cargo doc
+    - ls -R .
+    - mv target/doc .
+    - curl http://www.rust-ci.org/artifacts/put?t=$RUSTCI_TOKEN | sh
