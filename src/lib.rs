@@ -38,7 +38,7 @@ use glfw::OpenGlCoreProfile;
 ///
 /// # Example
 ///
-/// ~~~rust,no_run
+/// ```rust,no_run
 /// extern crate glfw;
 /// extern crate nice_glfw;
 ///
@@ -51,6 +51,7 @@ use glfw::OpenGlCoreProfile;
 ///
 ///     // ... rest of program
 /// }
+/// ```
 pub struct WindowBuilder<'glfw, 'title, 'monitor> {
     glfw: &'glfw Glfw,
     size: Option<(u32, u32)>,
@@ -143,8 +144,34 @@ impl<'glfw, 'title, 'monitor, 'hints> WindowBuilder<'glfw, 'title, 'monitor> {
     /// extensions.
     pub fn try_modern_context_hints(self)
     -> WindowBuilder<'glfw, 'title, 'monitor> {
+        // OS X requires forward compatability, annoyingly enough.
         self.try_hints([
+            ContextVersion(4, 5),
+            OpenglForwardCompat(true),
+            OpenglProfile(OpenGlCoreProfile)
+        ])
+        .try_hints([
             ContextVersion(4, 4),
+            OpenglForwardCompat(true),
+            OpenglProfile(OpenGlCoreProfile)
+        ])
+        .try_hints([
+            ContextVersion(4, 3),
+            OpenglForwardCompat(true),
+            OpenglProfile(OpenGlCoreProfile)
+        ])
+        .try_hints([
+            ContextVersion(4, 2),
+            OpenglForwardCompat(true),
+            OpenglProfile(OpenGlCoreProfile)
+        ])
+        .try_hints([
+            ContextVersion(4, 1),
+            OpenglForwardCompat(true),
+            OpenglProfile(OpenGlCoreProfile)
+        ])
+        .try_hints([
+            ContextVersion(4, 0),
             OpenglForwardCompat(true),
             OpenglProfile(OpenGlCoreProfile)
         ])
@@ -152,6 +179,19 @@ impl<'glfw, 'title, 'monitor, 'hints> WindowBuilder<'glfw, 'title, 'monitor> {
             ContextVersion(3, 2),
             OpenglForwardCompat(true),
             OpenglProfile(OpenGlCoreProfile),
+        ])
+        .try_hints([
+            ContextVersion(3, 1),
+            OpenglForwardCompat(true),
+            OpenglProfile(OpenGlCoreProfile),
+        ])
+        .try_hints([
+            ContextVersion(3, 0),
+            OpenglForwardCompat(true),
+            OpenglProfile(OpenGlCoreProfile),
+        ])
+        .try_hints([
+            ContextVersion(2, 1),
         ])
         .try_hints([
             ContextVersion(2, 0),
