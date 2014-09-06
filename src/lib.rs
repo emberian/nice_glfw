@@ -13,6 +13,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+//! Builder for a GLFW window with robust OpenGL context selection. See the `WindowBuilder` type.
+
 extern crate glfw;
 
 use glfw::Glfw;
