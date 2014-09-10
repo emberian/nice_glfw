@@ -186,9 +186,15 @@ impl<'glfw, 'title, 'monitor, 'hints> WindowBuilder<'glfw, 'title, 'monitor> {
             OpenglProfile(OpenGlCoreProfile),
         ])
         .try_hints([
+            ContextVersion(3, 1),
+        ])
+        .try_hints([
             ContextVersion(3, 0),
             OpenglForwardCompat(true),
             OpenglProfile(OpenGlCoreProfile),
+        ])
+        .try_hints([
+            ContextVersion(3, 0),
         ])
         .try_hints([
             ContextVersion(2, 1),
@@ -232,9 +238,12 @@ impl<'glfw, 'title, 'monitor, 'hints> WindowBuilder<'glfw, 'title, 'monitor> {
             let r = glfw.create_window(width, height, title, mode);
             match r {
                 Some((window, events)) => {
+                    info!("Created GLFW window with GL context hints {} and {}", common_hints, setup);
                     return Some((window, events));
                 },
-                None => (),
+                None => {
+                    debug!("Couldn't create a context for hints {} and {}", common_hints, setup);
+                }
             }
         }
         None
