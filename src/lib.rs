@@ -13,9 +13,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+#![feature(phase)]
+
 //! Builder for a GLFW window with robust OpenGL context selection. See the `WindowBuilder` type.
 
 extern crate glfw;
+#[phase(link, plugin)]
+extern crate log;
+
 
 use glfw::Glfw;
 use glfw::WindowMode;
