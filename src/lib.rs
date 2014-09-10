@@ -16,6 +16,7 @@
 //! Builder for a GLFW window with robust OpenGL context selection. See the `WindowBuilder` type.
 
 extern crate glfw;
+extern crate debug;
 
 use glfw::Glfw;
 use glfw::WindowMode;
@@ -234,7 +235,9 @@ impl<'glfw, 'title, 'monitor, 'hints> WindowBuilder<'glfw, 'title, 'monitor> {
                 Some((window, events)) => {
                     return Some((window, events));
                 },
-                None => (),
+                None => {
+                    println!("Couldn't create a context for hints {:?} and {:?}", common_hints, setup);
+                }
             }
         }
         None
