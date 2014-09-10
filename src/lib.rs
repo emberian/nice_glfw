@@ -186,9 +186,15 @@ impl<'glfw, 'title, 'monitor, 'hints> WindowBuilder<'glfw, 'title, 'monitor> {
             OpenglProfile(OpenGlCoreProfile),
         ])
         .try_hints([
+            ContextVersion(3, 1),
+        ])
+        .try_hints([
             ContextVersion(3, 0),
             OpenglForwardCompat(true),
             OpenglProfile(OpenGlCoreProfile),
+        ])
+        .try_hints([
+            ContextVersion(3, 0),
         ])
         .try_hints([
             ContextVersion(2, 1),
