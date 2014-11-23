@@ -29,9 +29,7 @@ use glfw::Window;
 use glfw::WindowEvent;
 use glfw::Windowed;
 use glfw::ContextVersion;
-use glfw::OpenglForwardCompat;
-use glfw::OpenglProfile;
-use glfw::OpenGlCoreProfile;
+use glfw::OpenGlProfileHint;
 
 /// Builder for a GLFW window with robust OpenGL context selection.
 ///
@@ -150,62 +148,62 @@ impl<'glfw, 'title, 'monitor, 'hints> WindowBuilder<'glfw, 'title, 'monitor> {
     pub fn try_modern_context_hints(self)
     -> WindowBuilder<'glfw, 'title, 'monitor> {
         // OS X requires forward compatability, annoyingly enough.
-        self.try_hints([
-            ContextVersion(4, 5),
-            OpenglForwardCompat(true),
-            OpenglProfile(OpenGlCoreProfile)
+        self.try_hints(&[
+            WindowHint::ContextVersion(4, 5),
+            WindowHint::OpenglForwardCompat(true),
+            WindowHint::OpenglProfile(OpenGlProfileHint::Core)
         ])
-        .try_hints([
-            ContextVersion(4, 4),
-            OpenglForwardCompat(true),
-            OpenglProfile(OpenGlCoreProfile)
+        .try_hints(&[
+            WindowHint::ContextVersion(4, 4),
+            WindowHint::OpenglForwardCompat(true),
+            WindowHint::OpenglProfile(OpenGlProfileHint::Core)
         ])
-        .try_hints([
-            ContextVersion(4, 3),
-            OpenglForwardCompat(true),
-            OpenglProfile(OpenGlCoreProfile)
+        .try_hints(&[
+            WindowHint::ContextVersion(4, 3),
+            WindowHint::OpenglForwardCompat(true),
+            WindowHint::OpenglProfile(OpenGlProfileHint::Core)
         ])
-        .try_hints([
-            ContextVersion(4, 2),
-            OpenglForwardCompat(true),
-            OpenglProfile(OpenGlCoreProfile)
+        .try_hints(&[
+            WindowHint::ContextVersion(4, 2),
+            WindowHint::OpenglForwardCompat(true),
+            WindowHint::OpenglProfile(OpenGlProfileHint::Core)
         ])
-        .try_hints([
-            ContextVersion(4, 1),
-            OpenglForwardCompat(true),
-            OpenglProfile(OpenGlCoreProfile)
+        .try_hints(&[
+            WindowHint::ContextVersion(4, 1),
+            WindowHint::OpenglForwardCompat(true),
+            WindowHint::OpenglProfile(OpenGlProfileHint::Core)
         ])
-        .try_hints([
-            ContextVersion(4, 0),
-            OpenglForwardCompat(true),
-            OpenglProfile(OpenGlCoreProfile)
+        .try_hints(&[
+            WindowHint::ContextVersion(4, 0),
+            WindowHint::OpenglForwardCompat(true),
+            WindowHint::OpenglProfile(OpenGlProfileHint::Core)
         ])
-        .try_hints([
-            ContextVersion(3, 2),
-            OpenglForwardCompat(true),
-            OpenglProfile(OpenGlCoreProfile),
+        .try_hints(&[
+            WindowHint::ContextVersion(3, 2),
+            WindowHint::OpenglForwardCompat(true),
+            WindowHint::OpenglProfile(OpenGlProfileHint::Core),
         ])
-        .try_hints([
-            ContextVersion(3, 1),
-            OpenglForwardCompat(true),
-            OpenglProfile(OpenGlCoreProfile),
+        .try_hints(&[
+            WindowHint::ContextVersion(3, 1),
+            WindowHint::OpenglForwardCompat(true),
+            WindowHint::OpenglProfile(OpenGlProfileHint::Core),
         ])
-        .try_hints([
-            ContextVersion(3, 1),
+        .try_hints(&[
+            WindowHint::ContextVersion(3, 1),
         ])
-        .try_hints([
-            ContextVersion(3, 0),
-            OpenglForwardCompat(true),
-            OpenglProfile(OpenGlCoreProfile),
+        .try_hints(&[
+            WindowHint::ContextVersion(3, 0),
+            WindowHint::OpenglForwardCompat(true),
+            WindowHint::OpenglProfile(OpenGlProfileHint::Core),
         ])
-        .try_hints([
-            ContextVersion(3, 0),
+        .try_hints(&[
+            WindowHint::ContextVersion(3, 0),
         ])
-        .try_hints([
-            ContextVersion(2, 1),
+        .try_hints(&[
+            WindowHint::ContextVersion(2, 1),
         ])
-        .try_hints([
-            ContextVersion(2, 0),
+        .try_hints(&[
+            WindowHint::ContextVersion(2, 0),
         ])
     }
 
