@@ -27,8 +27,6 @@ use glfw::WindowMode;
 use glfw::WindowHint;
 use glfw::Window;
 use glfw::WindowEvent;
-use glfw::Windowed;
-use glfw::ContextVersion;
 use glfw::OpenGlProfileHint;
 
 /// Builder for a GLFW window with robust OpenGL context selection.
@@ -227,7 +225,7 @@ impl<'glfw, 'title, 'monitor, 'hints> WindowBuilder<'glfw, 'title, 'monitor> {
 
         let (width, height) = size.unwrap_or((640, 480));
         let title = title.unwrap_or("GLFW Window");
-        let mode = mode.unwrap_or(Windowed);
+        let mode = mode.unwrap_or(WindowMode::Windowed);
 
         glfw.set_error_callback::<()>(None);
         for setup in try_hints.iter() {
