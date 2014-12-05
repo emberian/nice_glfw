@@ -27,10 +27,10 @@ use glfw::WindowMode;
 use glfw::WindowHint;
 use glfw::Window;
 use glfw::WindowEvent;
-use glfw::Windowed;
-use glfw::ContextVersion;
-use glfw::OpenglForwardCompat;
-use glfw::OpenglProfile;
+use glfw::WindowMode::Windowed;
+use glfw::WindowHint::ContextVersion;
+use glfw::WindowHint::OpenglForwardCompat;
+use glfw::WindowHint::OpenglProfile;
 use glfw::OpenGlProfileHint;
 
 /// Builder for a GLFW window with robust OpenGL context selection.
