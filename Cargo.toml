@@ -5,3 +5,6 @@ authors = ["Corey Richardson <corey@octayn.net>"]
 
 [dependencies.glfw]
 git = "https://github.com/bjz/glfw-rs"
+
+[dependencies]
+log = "*"
