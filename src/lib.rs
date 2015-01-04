@@ -21,6 +21,7 @@ extern crate glfw;
 #[phase(link, plugin)]
 extern crate log;
 
+use std::sync::mpsc::Receiver;
 
 use glfw::Glfw;
 use glfw::WindowMode;
