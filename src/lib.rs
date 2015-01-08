@@ -18,7 +18,7 @@
 //! Builder for a GLFW window with robust OpenGL context selection. See the `WindowBuilder` type.
 
 extern crate glfw;
-#[phase(link, plugin)]
+#[macro_use]
 extern crate log;
 
 use std::sync::mpsc::Receiver;
