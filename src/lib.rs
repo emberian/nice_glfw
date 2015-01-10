@@ -13,8 +13,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#![feature(phase)]
-
 //! Builder for a GLFW window with robust OpenGL context selection. See the `WindowBuilder` type.
 
 extern crate glfw;
@@ -244,11 +242,11 @@ impl<'glfw, 'title, 'monitor, 'hints> WindowBuilder<'glfw, 'title, 'monitor> {
             let r = glfw.create_window(width, height, title, mode);
             match r {
                 Some((window, events)) => {
-                    info!("Created GLFW window with GL context hints {} and {}", common_hints, setup);
+                    info!("Created GLFW window with GL context hints {:?} and {:?}", common_hints, setup);
                     return Some((window, events));
                 },
                 None => {
-                    debug!("Couldn't create a context for hints {} and {}", common_hints, setup);
+                    debug!("Couldn't create a context for hints {:?} and {:?}", common_hints, setup);
                 }
             }
         }
