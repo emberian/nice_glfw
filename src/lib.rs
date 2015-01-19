@@ -47,8 +47,8 @@ use glfw::OpenGlProfileHint;
 /// extern crate nice_glfw;
 ///
 /// fn main() {
-///     let glfw = glfw::init(glfw::FAIL_ON_ERRORS).unwrap();
-///     let window = nice_glfw::WindowBuilder::new(&glfw)
+///     let mut glfw = glfw::init(glfw::FAIL_ON_ERRORS).unwrap();
+///     let window = nice_glfw::WindowBuilder::new(&mut glfw)
 ///         .try_modern_context_hints()
 ///         .size(800, 600)
 ///         .create();
