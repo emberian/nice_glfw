@@ -47,8 +47,8 @@ use glfw::OpenGlProfileHint;
 /// extern crate nice_glfw;
 ///
 /// fn main() {
-///     let glfw = glfw::init(glfw::FAIL_ON_ERRORS).unwrap();
-///     let window = nice_glfw::WindowBuilder::new(&glfw)
+///     let mut glfw = glfw::init(glfw::FAIL_ON_ERRORS).unwrap();
+///     let window = nice_glfw::WindowBuilder::new(&mut glfw)
 ///         .try_modern_context_hints()
 ///         .size(800, 600)
 ///         .create();
@@ -57,7 +57,7 @@ use glfw::OpenGlProfileHint;
 /// }
 /// ```
 pub struct WindowBuilder<'glfw, 'title, 'monitor> {
-    glfw: &'glfw Glfw,
+    glfw: &'glfw mut Glfw,
     size: Option<(u32, u32)>,
     title: Option<&'title str>,
     mode: Option<WindowMode<'monitor>>,
@@ -67,7 +67,7 @@ pub struct WindowBuilder<'glfw, 'title, 'monitor> {
 
 impl<'glfw, 'title, 'monitor> WindowBuilder<'glfw, 'title, 'monitor> {
     /// Creates a new `WindowBuilder` for a existing `Glfw` value
-    pub fn new(glfw: &'glfw Glfw) -> WindowBuilder<'glfw, 'title, 'monitor> {
+    pub fn new(glfw: &'glfw mut Glfw) -> WindowBuilder<'glfw, 'title, 'monitor> {
         WindowBuilder {
             glfw: glfw,
             size: None,
