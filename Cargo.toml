@@ -3,8 +3,6 @@ name = "nice_glfw"
 version = "1.0.0"
 authors = ["Corey Richardson <corey@octayn.net>"]
 
-[dependencies.glfw]
-git = "https://github.com/bjz/glfw-rs"
-
 [dependencies]
 log = "*"
+glfw = "*"
