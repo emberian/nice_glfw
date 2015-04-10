@@ -4,14 +4,10 @@ name = "simple"
 version = "0.0.1"
 authors = ["Corey Richardson <corey@octayn.net>"]
 
-[dependencies.glfw]
-
-git = "https://github.com/bjz/glfw-rs"
-
-[dependencies.gl]
-
-git = "https://github.com/bjz/gl-rs"
+[dependencies]
+glfw = "*"
+gl = "*"
+libc = "*"
 
 [dependencies.nice_glfw]
-
 path = "../../"
