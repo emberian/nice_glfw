@@ -186,16 +186,6 @@ impl<'glfw, 'title, 'monitor, 'hints> WindowBuilder<'glfw, 'title, 'monitor> {
         ])
         .try_hints(&[
             WindowHint::ContextVersion(3, 1),
-            WindowHint::OpenglForwardCompat(true),
-            WindowHint::OpenglProfile(OpenGlProfileHint::Core),
-        ])
-        .try_hints(&[
-            WindowHint::ContextVersion(3, 1),
-        ])
-        .try_hints(&[
-            WindowHint::ContextVersion(3, 0),
-            WindowHint::OpenglForwardCompat(true),
-            WindowHint::OpenglProfile(OpenGlProfileHint::Core),
         ])
         .try_hints(&[
             WindowHint::ContextVersion(3, 0),
