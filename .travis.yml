@@ -5,15 +5,7 @@ language: rust
 before_install:
     - sudo apt-get update
     - sudo apt-get install xorg-dev
-    - git clone https://github.com/glfw/glfw.git
-    - pushd glfw
-    - git checkout 3.0.3
-    - cmake -DCMAKE_C_FLAGS=-fPIC -DGLFW_BUILD_EXAMPLES=OFF -DGLFW_BUILD_TESTS=OFF -DGLFW_BUILD_DOCS=OFF .
-    - make
-    - sudo make install
-    - popd
 after_script:
     - cargo doc
-    - ls -R .
     - mv target/doc .
     - curl http://www.rust-ci.org/artifacts/put?t=$RUSTCI_TOKEN | sh
