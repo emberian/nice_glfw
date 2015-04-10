@@ -1,7 +1,10 @@
 [project]
 name = "nice_glfw"
-version = "1.0.0"
+version = "1.0.1"
 authors = ["Corey Richardson <corey@octayn.net>"]
+description = "Create a modern GL context with glfw"
+repository = "https://github.com/cmr/nice_glfw"
+license = "BSL-1.0"
 
 [dependencies]
 glfw = "*"
