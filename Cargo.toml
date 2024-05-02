@@ -1,4 +1,4 @@
-[project]
+[package]
 name = "nice_glfw"
 version = "1.0.1"
 authors = ["Corey Richardson <corey@octayn.net>"]
